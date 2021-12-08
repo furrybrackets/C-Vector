@@ -1,2 +1,3 @@
-# C-Vector
-A simple vector library implemented in C. Nice and good looking.
+# C Vector
+
+A very simple C Vector library. Optionally includes macros to make using the vectors easier.
