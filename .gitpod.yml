@@ -1,0 +1,11 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - init: |
+      make
+    command: |
+      make help
+vscode:
+  extensions:
+    - llvm-vs-code-extensions.vscode-clangd
+    - sainnhe.sonokai
