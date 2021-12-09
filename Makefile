@@ -20,4 +20,4 @@ vpop.o: tests/vpop.c
 	$(CC) tests/vpop.c -c
 
 clean:
-	rm vector.o vinit.o run
+	rm *.o
