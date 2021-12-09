@@ -25,4 +25,6 @@ void vpop(Vec *v, int pos, int doShift);
 void* vget(Vec *v, int pos);
 
 void vclear(Vec *v);
+
+void vset(Vec *v, int pos, void *val);
 #endif

@@ -114,3 +114,10 @@ void vclear(Vec *v) {
         v->dat[i] = (void *)0;
     }
 }
+
+void vset(Vec *v, int pos, void *val) {
+    if (pos > v->len || pos < 0) {
+        return;
+    }
+    v->dat[pos] = val;
+};
