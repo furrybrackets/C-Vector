@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define EXIT_FAILURE 1
+#define DEBUG 1
 
 /*
 struct Vec {
@@ -49,11 +50,28 @@ void* xrealloc(void *ptr, size_t size) {
     }
 };
 
+/* 
+vrealloc(Vec *v, int cap);
+
+Vec *v <- The address (pointer) of a vector you want to reallocate.
+int cap <- The size of the new memory size. This function is called routinely when adding or popping.
+*/
 void vrealloc(Vec *v, int cap) {
     v->dat = xrealloc(v->dat, cap*sizeof(void *));
     v->cap = cap;
 };
 
+/*
+vadd(Vec *v, void *elem);
+
+To ensure all types (since C doesn't have generics) we use void*'s.
+A more accurate function call would be:
+
+vadd(Vec *v, any elem);
+
+Vec *v <- The address (pointer) of a vector you want to add an element to
+void *elem <- Value of the thing you want to add.
+*/
 void vadd(Vec *v, void *elem) {
     if (v->len == v->cap) {
         vrealloc(v, (v->cap)*2);
@@ -80,6 +98,19 @@ void vpop(Vec *v, int pos, int doShift) {
         vrealloc(v, (v->cap)/2);
     };
 
+};
+
+void* vget(Vec *v, int pos) {
+    if (pos > v->len) {
+        #ifdef DEBUG
+        printf("err: getting undefined memory at position %d\n", pos);
+        #endif
+    }
+    return (*v).dat[pos];
 }
 
-
+void vclear(Vec *v) {
+    for (int i = 1; i<v->len; i++) {
+        v->dat[i] = (void *)0;
+    }
+}

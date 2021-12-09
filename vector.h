@@ -21,4 +21,8 @@ void* xrealloc(void *ptr, size_t size);
 void vrealloc(Vec* v, int cap);
 
 void vpop(Vec *v, int pos, int doShift);
+
+void* vget(Vec *v, int pos);
+
+void vclear(Vec *v);
 #endif

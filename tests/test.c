@@ -1,13 +1,13 @@
-#include "test.h"
+#include "../vector.h"
 #include <stdio.h>
 #define MAX 10
 
 
 int main(int argc, const char **argv) {
-    printf("Running test 1:\n");
-    vinit_test(MAX);
-    printf("Running test 2:\n");
-    vadd_test(MAX);
-    printf("Running test 3:\n");
-    vpop_test(MAX);
+    Vec v;
+    vinit(&v, 20, 1);
+
+    vadd(&v, "Hi!");
+
+    printf("%s\n", (char *)vget(&v, 1));
 }
